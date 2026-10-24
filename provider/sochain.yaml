@@ -1,0 +1,33 @@
+identity:
+  author: sochain
+  name: sochain
+  label:
+    en_US: SoChain
+  description:
+    en_US: Bitcoin, Litecoin, Dogecoin and Zcash blockchain data. Read-only.
+  icon: icon.svg
+  tags:
+    - finance
+    - utilities
+credentials_for_provider:
+  api_key:
+    type: secret-input
+    required: false
+    label:
+      en_US: API key (optional)
+    placeholder:
+      en_US: Leave empty to use SoChain without a key
+    help:
+      en_US: Optional. Without a key, lookups work up to a daily limit per IP address. A free account at sochain.com/dashboard gives a key with a higher monthly allowance.
+    url: https://sochain.com/dashboard
+tools:
+  - tools/get_balance.yaml
+  - tools/get_address_summary.yaml
+  - tools/get_address_transactions.yaml
+  - tools/get_transaction.yaml
+  - tools/get_transaction_status.yaml
+  - tools/get_block.yaml
+  - tools/get_network_info.yaml
+extra:
+  python:
+    source: provider/sochain.py

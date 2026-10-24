@@ -1,0 +1,57 @@
+identity:
+  name: get_balance
+  author: sochain
+  label:
+    en_US: Get Balance
+description:
+  human:
+    en_US: "Confirmed balance and pending (unconfirmed) change of an address."
+  llm: "Get the confirmed balance and the unconfirmed (pending) change of a Bitcoin, Litecoin, Dogecoin or Zcash address. Amounts are decimal strings in coin units."
+parameters:
+  - name: network
+    type: select
+    required: true
+    form: llm
+    default: BTC
+    label:
+      en_US: Network
+    human_description:
+      en_US: BTC, LTC, DOGE or ZEC, or a testnet (BTCTEST is Bitcoin testnet4).
+    llm_description: "Network code: BTC (Bitcoin), LTC (Litecoin), DOGE (Dogecoin), ZEC (Zcash), or a testnet: BTCTEST (Bitcoin testnet4), LTCTEST, DOGETEST, ZECTEST."
+    options:
+      - value: BTC
+        label:
+          en_US: Bitcoin
+      - value: LTC
+        label:
+          en_US: Litecoin
+      - value: DOGE
+        label:
+          en_US: Dogecoin
+      - value: ZEC
+        label:
+          en_US: Zcash
+      - value: BTCTEST
+        label:
+          en_US: Bitcoin testnet4
+      - value: LTCTEST
+        label:
+          en_US: Litecoin testnet
+      - value: DOGETEST
+        label:
+          en_US: Dogecoin testnet
+      - value: ZECTEST
+        label:
+          en_US: Zcash testnet
+  - name: address
+    type: string
+    required: true
+    form: llm
+    label:
+      en_US: Address
+    human_description:
+      en_US: The address to look up.
+    llm_description: The address to look up, in full.
+extra:
+  python:
+    source: tools/get_balance.py
